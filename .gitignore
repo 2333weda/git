@@ -54,3 +54,6 @@ coverage/
 
 ## 本地临时目录
 .tmp/
+
+## 本地工具（GitHub CLI 便携版、gh 配置）
+.tools/
