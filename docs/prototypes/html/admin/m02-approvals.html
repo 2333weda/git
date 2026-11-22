@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="dsh-design" content="web">
+  <title>预约审批 · 智约管理后台</title>
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="m01-venues.html" aria-label="智约管理后台首页">
+      <span class="brand-mark">约</span>
+      <span class="brand-copy"><strong>智约</strong><span>共享空间管理后台</span></span>
+    </a>
+    <div class="scope-box"><span>数据范围</span><strong>全院 · 学院管理员</strong></div>
+    <div class="nav-label">管理模块</div>
+    <nav class="nav" aria-label="管理模块">
+        <a href="m01-venues.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V6.5A2.5 2.5 0 0 1 6.5 4H20v15H6.5A2.5 2.5 0 0 1 4 16.5Z"/><path d="M4 16.5A2.5 2.5 0 0 1 6.5 14H20M8 8h8M8 11.5h5"/></svg><span>场地与时段</span><span class="nav-code">M-01</span></a>
+        <a href="m02-approvals.html" class="active" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3.5" width="16" height="17" rx="2.5"/><path d="m8 12 2.5 2.5L16 9M8 17h8"/></svg><span>预约审批</span><span class="nav-code">M-02</span></a>
+        <a href="m03-users.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0M16 5.4a3 3 0 0 1 0 5.2M18.2 14.2A5 5 0 0 1 21 19"/></svg><span>用户与角色</span><span class="nav-code">M-03</span></a>
+        <a href="m04-failures.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0M17 13v6M17 22h.01M20.5 16.5l-7 7"/></svg><span>爽约名单</span><span class="nav-code">M-04</span></a>
+        <a href="m05-utilization.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V4M4 20h16"/><path d="m7 15 3.5-4 3 2.5L19 7"/></svg><span>利用率统计</span><span class="nav-code">M-05</span></a>
+        <a href="m06-logs.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4.5V3h6v1.5M8.5 9h7M8.5 13h7M8.5 17h4"/></svg><span>操作日志</span><span class="nav-code">M-06</span></a>
+    </nav>
+    <div class="sidebar-foot">
+      <button class="side-help" type="button" data-toast="字段口径、状态机与权限说明见需求说明书第 3～6 章。"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.6 2.6 0 1 1 4 2.2c-.9.5-1.5 1-1.5 2M12 17h.01"/></svg><span>口径与帮助</span></button>
+      <div class="side-version">演示原型 · V0.8</div>
+    </div>
+  </aside>
+
+  <div class="app-main">
+    <header class="topbar">
+      <div class="crumb"><span>管理后台</span><span>/</span><strong>预约审批</strong></div>
+      <div class="topbar-tools">
+        <label class="global-search">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
+          <input type="search" placeholder="搜索场地、预约号、学号…" aria-label="全局搜索">
+          <kbd>⌘K</kbd>
+        </label>
+        <button class="icon-btn" type="button" aria-label="通知" data-toast="暂无新的系统通知。">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg>
+          <span class="dot"></span>
+        </button>
+        <div class="user-chip">
+          <span class="avatar">陈</span>
+          <span class="user-copy"><strong>陈老师</strong><span>学院管理员</span></span>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+      <div class="page-head">
+        <div>
+          <div class="page-kicker"><span class="id">M-02</span> 管理后台</div>
+          <h1>预约审批</h1>
+          <p class="page-desc">处理超出常规时长、跨场地借用和临时关闭后的补偿预约。审批结果与理由会即时回传学生端。</p>
+        </div>
+        <div class="page-actions">
+          <span class="updated">数据更新于 13:22</span>
+          <button class="btn" type="button" data-toast="常规单次上限 4 小时；跨场地与补偿预约需管理员审批，审批人不得与申请人相同。">查看审批规则</button>
+        </div>
+      </div>
+<section class="stat-grid" aria-label="关键数据">
+          <div class="stat">
+            <div class="stat-label"><span>待审批</span><span class="muted">名下场地</span></div>
+            <strong>4</strong>
+            <span class="sub">最早已等待 42 分钟</span>
+          </div>
+          <div class="stat">
+            <div class="stat-label"><span>今日已处理</span><span class="muted">今日</span></div>
+            <strong>9</strong>
+            <span class="sub">通过 7 · 驳回 2</span>
+          </div>
+          <div class="stat">
+            <div class="stat-label"><span>平均处理时长</span><span class="muted">近 7 天</span></div>
+            <strong>1.4h</strong>
+            <span class="sub">目标 ≤ 4 小时</span>
+          </div>
+          <div class="stat">
+            <div class="stat-label"><span>本月特殊预约</span><span class="muted">全院</span></div>
+            <strong>12</strong>
+            <span class="sub">较上月 +3</span>
+          </div>
+      </section>
+      <section class="filter-card" aria-label="查询条件">
+        <div class="filter-head">
+          <div class="filter-title">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+            查询条件
+          </div>
+          <span class="filter-hint">支持按学号、姓名、预约号、场地与申请类型组合查询。</span>
+        </div>
+        <div class="filter-grid">
+          <div class="field">
+            <label for="apKeyword">学号 / 姓名 / 预约号</label>
+            <div class="with-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
+              <input id="apKeyword" type="search" placeholder="如：2023120418 / 林一然">
+            </div>
+          </div>
+          <div class="field"><label for="apVenue">场地</label><select id="apVenue"><option>全部场地</option><option>静思研讨室 A</option><option>204 小组研讨室</option><option>风雨球场 2 号</option><option>报告厅 B</option></select></div>
+          <div class="field"><label for="apType">申请类型</label><select id="apType"><option>全部类型</option><option>超时长</option><option>跨场地借用</option><option>补偿预约</option></select></div>
+          <div class="field"><label for="apDate">申请日期</label><input id="apDate" type="date" value="2026-11-22"></div>
+          <div class="filter-actions"><button class="btn btn-primary" type="button" data-toast="已按当前条件查询，共 4 条待审批记录。">查询</button>
+          <button class="btn" type="button">重置</button></div>
+        </div>
+      </section>
+      <div class="split">
+        <section class="panel" aria-label="待审批列表">
+          <div class="table-toolbar"><div class="result-count">待审批　<strong>4 条</strong>　仅显示名下场地</div><div class="table-toolbar-actions"><span class="tag">按等待时长排序</span></div></div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>学生 / 申请</th><th>场地</th><th>申请时段</th><th>类型</th><th>状态</th></tr></thead>
+              <tbody>
+                <tr class="selected">
+                  <td class="primary-cell"><span class="cell-main">林一然</span><span class="cell-sub">2023120418 · 12:40 提交</span></td>
+                  <td><span class="cell-main">静思研讨室 A</span><span class="cell-sub">图书馆 3F</span></td>
+                  <td><span class="cell-main">11-23 18:00–22:30</span><span class="cell-sub">4.5 小时 · 4 人</span></td>
+                  <td><span class="tag warn">超时长</span></td>
+                  <td><span class="pill pill-warn">待审批</span></td>
+                </tr>
+                <tr>
+                  <td class="primary-cell"><span class="cell-main">周沐</span><span class="cell-sub">2022110832 · 11:15 提交</span></td>
+                  <td><span class="cell-main">风雨球场 2 号</span><span class="cell-sub">体育馆 1F</span></td>
+                  <td><span class="cell-main">11-24 19:00–21:00</span><span class="cell-sub">2 小时 · 4 人</span></td>
+                  <td><span class="tag blue">跨场地</span></td>
+                  <td><span class="pill pill-warn">待审批</span></td>
+                </tr>
+                <tr>
+                  <td class="primary-cell"><span class="cell-main">陈星</span><span class="cell-sub">2023110745 · 09:02 提交</span></td>
+                  <td><span class="cell-main">报告厅 B</span><span class="cell-sub">明德楼 1F</span></td>
+                  <td><span class="cell-main">11-25 14:00–17:00</span><span class="cell-sub">3 小时 · 30 人</span></td>
+                  <td><span class="tag">补偿预约</span></td>
+                  <td><span class="pill pill-warn">待审批</span></td>
+                </tr>
+                <tr>
+                  <td class="primary-cell"><span class="cell-main">许知</span><span class="cell-sub">2024121033 · 昨天 17:20</span></td>
+                  <td><span class="cell-main">静思研讨室 A</span><span class="cell-sub">图书馆 3F</span></td>
+                  <td><span class="cell-main">11-26 09:00–13:30</span><span class="cell-sub">4.5 小时 · 2 人</span></td>
+                  <td><span class="tag warn">超时长</span></td>
+                  <td><span class="pill pill-warn">待审批</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-foot"><span>显示第 1–4 条，共 4 条</span><div class="pagination"><button type="button" aria-label="上一页">‹</button><span class="current">1</span><button type="button" aria-label="下一页">›</button></div></div>
+        </section>
+
+        <aside class="panel" aria-label="审批处理">
+          <div class="panel-head"><div class="panel-title">审批处理　<span class="count">#AP-20261122-0042</span></div><span class="pill pill-warn">待审批</span></div>
+          <div class="panel-body">
+            <div class="detail-head"><div><div class="detail-name">林一然</div><div class="detail-sub">2023120418 · 软件工程 2023</div></div><span class="tag warn">超时长</span></div>
+            <div class="detail-list">
+              <div class="detail-row"><span>场地</span><span><strong>静思研讨室 A</strong><br><span class="faint">图书馆 3F · 容量 6 人</span></span></div>
+              <div class="detail-row"><span>申请时段</span><span><strong>11-23 18:00–22:30</strong><br><span class="faint">4.5 小时 · 超出上限 30 分钟</span></span></div>
+              <div class="detail-row"><span>同行人数</span><span>4 人</span></div>
+              <div class="detail-row"><span>提交时间</span><span>11-22 12:40 <span class="faint">（已等待 42 分钟）</span></span></div>
+            </div>
+            <div class="detail-reason"><span class="label">申请理由</span>课程拍摄需要连续使用场地，设备调试占用时间较长，申请延长 30 分钟。</div>
+            <div class="rule-inline"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg><span>常规上限 4 小时；审批人不得与申请人相同。通过后以 PENDING 入库，驳回置为 CANCELLED。</span></div>
+            <div class="form-area"><label for="approvalNote">审批意见</label><textarea id="approvalNote" data-counter maxlength="200" placeholder="填写通过或驳回的理由，将同步给学生端；驳回时必填。"></textarea><div class="counter">0 / 200</div></div>
+            <div class="detail-actions"><button class="btn btn-danger" type="button" data-toast="已驳回，理由已回传学生端。">驳回</button><button class="btn btn-primary" type="button" data-toast="已通过并入库，预约号 BK-20261123-0201 已生成，学生端已收到通知。">通过并入库</button></div>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

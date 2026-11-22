@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="dsh-design" content="miniprogram">
+  <title>取消与申诉 · 智约</title>
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header class="mp-top">
+    <div class="mp-status">
+      <span>13:22</span>
+      <span class="mp-status-icons" aria-hidden="true">
+        <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg>
+        <svg width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M1.5 4.5a9.5 9.5 0 0 1 13 0"/><path d="M4 7.2a6 6 0 0 1 8 0"/><path d="M6.6 9.8a2.4 2.4 0 0 1 2.8 0"/><circle cx="8" cy="11" r=".8" fill="currentColor" stroke="none"/></svg>
+        <span class="battery"></span>
+      </span>
+    </div>
+    <div class="mp-nav">
+      <a class="mp-back" href="s04-bookings.html" aria-label="返回我的预约">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 5-7 7 7 7"/></svg>
+      </a>
+      <h1>取消与申诉</h1>
+    </div>
+  </header>
+
+  <main class="mp-page detail">
+    <div class="segmented" role="tablist" aria-label="操作类型">
+      <button class="on" type="button" role="tab" aria-selected="true" data-panel="cancel">取消预约</button>
+      <button type="button" role="tab" aria-selected="false" data-panel="appeal">爽约申诉</button>
+    </div>
+
+    <section class="panel" id="panel-cancel" role="tabpanel" aria-label="取消预约">
+      <div class="mini-booking">
+        <div class="mini-booking-top">
+          <h2>静思研讨室 A</h2>
+          <span class="badge badge-live">待签到</span>
+        </div>
+        <p class="time"><strong>11 月 22 日 · 14:00 — 15:30</strong><br>图书馆 3F · 预约号 BK-20261122-0186</p>
+      </div>
+
+      <section class="form-block" aria-labelledby="reason-label">
+        <div class="form-label" id="reason-label">取消原因 <span class="hint">必选</span></div>
+        <div class="radio-stack">
+          <label class="radio-card">
+            <input type="radio" name="cancel-reason" checked>
+            <span class="radio-dot" aria-hidden="true"></span>
+            <span class="radio-copy"><strong>临时有事</strong><small>课程冲突、临时会议等个人安排变化</small></span>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="cancel-reason">
+            <span class="radio-dot" aria-hidden="true"></span>
+            <span class="radio-copy"><strong>地点变更</strong><small>换到更近或设备更合适的场地</small></span>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="cancel-reason">
+            <span class="radio-dot" aria-hidden="true"></span>
+            <span class="radio-copy"><strong>其他</strong><small>天气、活动取消等其他原因</small></span>
+          </label>
+        </div>
+      </section>
+
+      <div class="callout warm" style="margin-top: 18px">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.4 3.4 8.2 8 9 4.6-.8 8-4.6 8-9V6l-8-3Z"/><path d="m8.5 12 2.2 2.2 4.8-4.8"/></svg>
+        <span><strong>现在取消不扣信用分。</strong>时段会立即释放给其他同学；取消后不可恢复，请确认后再提交。</span>
+      </div>
+
+      <div class="note-row">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 1px"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+        <span>开始时间已过则无法取消，预约会在开始后 15 分钟自动释放并记一次爽约。</span>
+      </div>
+    </section>
+
+    <section class="panel" id="panel-appeal" role="tabpanel" aria-label="爽约申诉" hidden>
+      <div class="record-box">
+        <span class="venue-thumb" aria-hidden="true" style="width: 38px; height: 38px; flex-basis: 38px; border-radius: 10px; background: var(--bg); border-color: var(--danger)">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v5M12 17h.01"/><path d="M10.3 4.5 3.8 16a2 2 0 0 0 1.7 3h13a2 2 0 0 0 1.7-3L13.7 4.5a2 2 0 0 0-3.4 0Z"/></svg>
+        </span>
+        <span class="record-copy">
+          <strong>204 小组研讨室 · 未签到</strong>
+          <p>10 月 18 日 14:00 — 15:00 · 超时 15 分钟自动释放</p>
+        </span>
+        <span class="record-delta">−10</span>
+      </div>
+
+      <section class="form-block" aria-labelledby="appeal-text-label">
+        <div class="form-label" id="appeal-text-label">申诉说明 <span class="hint"><span id="appealCount">0</span> / 200</span></div>
+        <textarea class="field" id="appealText" maxlength="200" placeholder="说明当时的情况，例如网络故障、临时就医、场地未开放……"></textarea>
+      </section>
+
+      <section class="form-block" aria-labelledby="proof-label">
+        <div class="form-label" id="proof-label">证明材料 <span class="hint">选填 · 最多 3 张</span></div>
+        <div class="upload-grid" id="uploadGrid">
+          <button class="upload-tile" type="button">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.5"/><path d="m21 16-5-5L5 19"/></svg>
+            <span>上传截图</span>
+          </button>
+          <button class="upload-tile" type="button">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.5"/><path d="m21 16-5-5L5 19"/></svg>
+            <span>上传截图</span>
+          </button>
+          <button class="upload-tile" type="button">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.5"/><path d="m21 16-5-5L5 19"/></svg>
+            <span>上传截图</span>
+          </button>
+        </div>
+        <p class="inline-hint">支持 JPG / PNG，单张不超过 5MB。截图仅用于本次申诉审核。</p>
+      </section>
+
+      <div class="callout" style="margin-top: 18px">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <span><strong>3 个工作日内反馈。</strong>每条爽约记录只能申诉一次；申诉成立后会回滚该次扣分与爽约计数。</span>
+      </div>
+
+      <a class="form-label" href="s06-credit.html" style="display: flex; min-height: 44px; margin-top: 10px; color: var(--accent-deep); font-size: 11px; text-decoration: underline; text-underline-offset: 3px">
+        先去信用分页看看扣分明细
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
+      </a>
+    </section>
+  </main>
+
+  <div class="mp-actionbar">
+    <div class="action-meta" id="actionMeta"><strong>不扣分</strong>时段立即释放</div>
+    <button class="btn btn-danger" type="button" id="mainAction">确认取消预约</button>
+  </div>
+
+  <div class="sheet-backdrop" id="cancelResult" role="dialog" aria-modal="true" aria-labelledby="cancelResultTitle" hidden>
+    <section class="sheet">
+      <div class="sheet-success-icon danger" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </div>
+      <h2 id="cancelResultTitle">预约已取消</h2>
+      <p class="sheet-sub">时段已释放，其他同学现在可以预约了。</p>
+      <div class="sheet-info">
+        <div class="sheet-info-row"><span>场地</span><strong>静思研讨室 A</strong></div>
+        <div class="sheet-info-row"><span>原时段</span><strong>11-22 14:00 — 15:30</strong></div>
+        <div class="sheet-info-row"><span>信用分</span><strong>90 · 未变动</strong></div>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-ghost" href="s04-bookings.html">返回预约</a>
+        <a class="btn btn-primary" href="s01-availability.html">重新选时段</a>
+      </div>
+      <button class="sheet-close" type="button" data-close="cancelResult">留在此页</button>
+    </section>
+  </div>
+
+  <div class="sheet-backdrop" id="appealResult" role="dialog" aria-modal="true" aria-labelledby="appealResultTitle" hidden>
+    <section class="sheet">
+      <div class="sheet-success-icon" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg>
+      </div>
+      <h2 id="appealResultTitle">申诉已受理</h2>
+      <p class="sheet-sub">管理员会在 3 个工作日内完成审核，结果通过微信服务通知你。</p>
+      <div class="sheet-info">
+        <div class="sheet-info-row"><span>受理编号</span><strong>AP-20261122-018</strong></div>
+        <div class="sheet-info-row"><span>关联记录</span><strong>10-18 · 未签到</strong></div>
+        <div class="sheet-info-row"><span>当前状态</span><strong style="color: var(--accent-deep)">审核中</strong></div>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-ghost" href="s04-bookings.html">返回预约</a>
+        <a class="btn btn-primary" href="s06-credit.html">查看信用分</a>
+      </div>
+      <button class="sheet-close" type="button" data-close="appealResult">留在此页</button>
+    </section>
+  </div>
+
+  <script>
+    (function () {
+      var tabs = Array.prototype.slice.call(document.querySelectorAll(".segmented [data-panel]"));
+      var panels = {
+        cancel: document.getElementById("panel-cancel"),
+        appeal: document.getElementById("panel-appeal")
+      };
+      var actionMeta = document.getElementById("actionMeta");
+      var mainAction = document.getElementById("mainAction");
+      var current = "cancel";
+      var cancelResult = document.getElementById("cancelResult");
+      var appealResult = document.getElementById("appealResult");
+
+      var meta = {
+        cancel: "<strong>不扣分</strong>时段立即释放",
+        appeal: "<strong>3 个工作日</strong>内反馈"
+      };
+      var actionLabel = {
+        cancel: "确认取消预约",
+        appeal: "提交申诉"
+      };
+
+      function setMode(mode) {
+        current = mode;
+        tabs.forEach(function (tab) {
+          var on = tab.getAttribute("data-panel") === mode;
+          tab.classList.toggle("on", on);
+          tab.setAttribute("aria-selected", on ? "true" : "false");
+        });
+        Object.keys(panels).forEach(function (key) {
+          panels[key].hidden = key !== mode;
+        });
+        actionMeta.innerHTML = meta[mode];
+        mainAction.textContent = actionLabel[mode];
+        mainAction.className = mode === "cancel" ? "btn btn-danger" : "btn btn-primary";
+      }
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener("click", function () { setMode(tab.getAttribute("data-panel")); });
+      });
+
+      var params = new URLSearchParams(window.location.search);
+      if (params.get("mode") === "appeal") setMode("appeal");
+
+      mainAction.addEventListener("click", function () {
+        var target = current === "cancel" ? cancelResult : appealResult;
+        target.hidden = false;
+        target.querySelector(".sheet").focus?.();
+      });
+
+      document.querySelectorAll("[data-close]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          document.getElementById(button.getAttribute("data-close")).hidden = true;
+          mainAction.focus();
+        });
+      });
+
+      [cancelResult, appealResult].forEach(function (overlay) {
+        overlay.addEventListener("click", function (event) {
+          if (event.target === overlay) {
+            overlay.hidden = true;
+            mainAction.focus();
+          }
+        });
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          [cancelResult, appealResult].forEach(function (overlay) { overlay.hidden = true; });
+        }
+      });
+
+      var appealText = document.getElementById("appealText");
+      var appealCount = document.getElementById("appealCount");
+      appealText.addEventListener("input", function () {
+        appealCount.textContent = appealText.value.length;
+      });
+
+      var uploadGrid = document.getElementById("uploadGrid");
+      uploadGrid.addEventListener("click", function (event) {
+        var tile = event.target.closest(".upload-tile");
+        if (!tile) return;
+        if (tile.classList.contains("has-file")) return;
+        tile.classList.add("has-file");
+        tile.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg><span>已添加</span>';
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="dsh-design" content="miniprogram">
+  <title>空档查询 · 智约</title>
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header class="mp-top">
+    <div class="mp-status">
+      <span>13:22</span>
+      <span class="mp-status-icons" aria-hidden="true">
+        <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg>
+        <svg width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M1.5 4.5a9.5 9.5 0 0 1 13 0"/><path d="M4 7.2a6 6 0 0 1 8 0"/><path d="M6.6 9.8a2.4 2.4 0 0 1 2.8 0"/><circle cx="8" cy="11" r=".8" fill="currentColor" stroke="none"/></svg>
+        <span class="battery"></span>
+      </span>
+    </div>
+    <div class="mp-nav custom">
+      <a class="brand" href="s01-availability.html" aria-label="智约首页">
+        <span class="brand-mark">约</span>
+        <span class="brand-name">智约</span>
+      </a>
+      <span class="nav-location">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        图书馆
+      </span>
+    </div>
+  </header>
+
+  <main class="mp-page">
+    <section class="hero">
+      <span class="eyebrow">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg>
+        校园共享空间
+      </span>
+      <span class="hero-sticker">14 天<br>可约</span>
+      <h1>下一段空档，<br><em>刚好是你的。</em></h1>
+      <p class="hero-sub">图书馆、明德楼、体育馆，25 间场地实时更新，不用再靠群接龙。</p>
+    </section>
+
+    <div class="ai-search" role="search">
+      <span class="ai-icon" aria-hidden="true">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 1.8 4.9L18.7 9.7l-4.9 1.8L12 16.4l-1.8-4.9-4.9-1.8 4.9-1.8L12 3Z"/><path d="m19 15 .9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9L19 15Z"/></svg>
+      </span>
+      <span class="ai-copy">
+        <span class="ai-label">AI 找位 · 说人话就行</span>
+        <span class="ai-query">“明天下午三点，两人，安静一点”</span>
+      </span>
+      <button class="mic" type="button" aria-label="语音找位">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></svg>
+      </button>
+    </div>
+
+    <section class="date-section" aria-labelledby="date-title">
+      <div class="sec-head">
+        <h2 id="date-title">选个日子</h2>
+        <span class="sec-link">未来 14 天 ›</span>
+      </div>
+      <div class="date-strip" role="radiogroup" aria-label="预约日期">
+        <label class="date-chip">
+          <input type="radio" name="date" checked>
+          <span><span>今天</span><strong>22</strong><span class="today-dot"></span></span>
+        </label>
+        <label class="date-chip">
+          <input type="radio" name="date">
+          <span><span>周日</span><strong>23</strong><span>11 月</span></span>
+        </label>
+        <label class="date-chip">
+          <input type="radio" name="date">
+          <span><span>周一</span><strong>24</strong><span>11 月</span></span>
+        </label>
+        <label class="date-chip">
+          <input type="radio" name="date">
+          <span><span>周二</span><strong>25</strong><span>11 月</span></span>
+        </label>
+        <label class="date-chip">
+          <input type="radio" name="date">
+          <span><span>周三</span><strong>26</strong><span>11 月</span></span>
+        </label>
+        <label class="date-chip">
+          <input type="radio" name="date">
+          <span><span>周四</span><strong>27</strong><span>11 月</span></span>
+        </label>
+        <label class="date-chip">
+          <input type="radio" name="date">
+          <span><span>周五</span><strong>28</strong><span>11 月</span></span>
+        </label>
+      </div>
+    </section>
+
+    <div class="chip-scroll" aria-label="场地类型筛选">
+      <button class="chip coral" type="button">全部</button>
+      <button class="chip" type="button">研讨室</button>
+      <button class="chip" type="button">自习位</button>
+      <button class="chip" type="button">球场</button>
+      <button class="chip" type="button">琴房</button>
+    </div>
+
+    <section class="section" aria-labelledby="venue-title">
+      <div class="sec-head">
+        <h2 id="venue-title">有空档的场地</h2>
+        <span class="sec-link">3 间 · 今天</span>
+      </div>
+      <div class="slot-legend" aria-hidden="true">
+        <span><i class="legend-dot free"></i>可约</span>
+        <span><i class="legend-dot full"></i>已满</span>
+        <span><i class="legend-dot maint"></i>维护</span>
+      </div>
+
+      <article class="venue-card" style="margin-top: 10px">
+        <div class="venue-head">
+          <span class="venue-thumb" aria-hidden="true">
+            <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 1 4 16.5Z"/><path d="M4 16.5A2.5 2.5 0 0 1 6.5 14H20M8 7h8M8 10.5h5"/></svg>
+          </span>
+          <div class="venue-main">
+            <div class="venue-title-row">
+              <h3 class="venue-title">静思研讨室 A</h3>
+              <span class="badge badge-live">最近可约</span>
+            </div>
+            <p class="venue-meta">图书馆 3F · 6 人 · 白板 / 投影</p>
+          </div>
+          <span class="venue-distance">步行 2 分</span>
+        </div>
+        <div class="slot-grid">
+          <a class="slot free hot" href="s02-booking.html?room=lib-a&amp;start=14:00&amp;end=14:30"><span>14:00</span><small>可约</small></a>
+          <a class="slot free" href="s02-booking.html?room=lib-a&amp;start=14:30&amp;end=15:00"><span>14:30</span><small>可约</small></a>
+          <span class="slot full" aria-disabled="true"><span>15:00</span><small>已满</small></span>
+          <span class="slot maint" aria-disabled="true"><span>15:30</span><small>维护</small></span>
+        </div>
+        <div class="venue-foot">
+          <span class="next">可约 90 分钟，最近 <strong>14:00</strong></span>
+          <a href="s02-booking.html?room=lib-a&amp;start=14:00&amp;end=15:30">去预约
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="venue-card">
+        <div class="venue-head">
+          <span class="venue-thumb teal" aria-hidden="true">
+            <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </span>
+          <div class="venue-main">
+            <div class="venue-title-row">
+              <h3 class="venue-title">204 小组研讨室</h3>
+              <span class="badge">8 人</span>
+            </div>
+            <p class="venue-meta">明德楼 2F · 电视屏 · 可讨论</p>
+          </div>
+          <span class="venue-distance">步行 6 分</span>
+        </div>
+        <div class="slot-grid">
+          <span class="slot full" aria-disabled="true"><span>13:30</span><small>已满</small></span>
+          <a class="slot free" href="s02-booking.html?room=md-204&amp;start=14:00&amp;end=14:30"><span>14:00</span><small>可约</small></a>
+          <span class="slot full" aria-disabled="true"><span>14:30</span><small>已满</small></span>
+          <a class="slot free" href="s02-booking.html?room=md-204&amp;start=15:00&amp;end=15:30"><span>15:00</span><small>可约</small></a>
+        </div>
+        <div class="venue-foot">
+          <span class="next">可约 30 分钟，最近 <strong>14:00</strong></span>
+          <a href="s02-booking.html?room=md-204&amp;start=14:00&amp;end=14:30">去预约
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="venue-card">
+        <div class="venue-head">
+          <span class="venue-thumb coral" aria-hidden="true">
+            <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M4 12h16M12 4c2.4 2.3 3.6 5 3.6 8s-1.2 5.7-3.6 8M12 4c-2.4 2.3-3.6 5-3.6 8s1.2 5.7 3.6 8"/></svg>
+          </span>
+          <div class="venue-main">
+            <div class="venue-title-row">
+              <h3 class="venue-title">风雨球场 2 号</h3>
+              <span class="badge">4 人</span>
+            </div>
+            <p class="venue-meta">体育馆 1F · 木地板 · 夜间照明</p>
+          </div>
+          <span class="venue-distance">步行 9 分</span>
+        </div>
+        <div class="slot-grid">
+          <a class="slot free" href="s02-booking.html?room=gym-2&amp;start=14:00&amp;end=14:30"><span>14:00</span><small>可约</small></a>
+          <a class="slot free" href="s02-booking.html?room=gym-2&amp;start=14:30&amp;end=15:00"><span>14:30</span><small>可约</small></a>
+          <a class="slot free" href="s02-booking.html?room=gym-2&amp;start=15:00&amp;end=15:30"><span>15:00</span><small>可约</small></a>
+          <span class="slot full" aria-disabled="true"><span>15:30</span><small>已满</small></span>
+        </div>
+        <div class="venue-foot">
+          <span class="next">可约 90 分钟，最近 <strong>14:00</strong></span>
+          <a href="s02-booking.html?room=gym-2&amp;start=14:00&amp;end=15:30">去预约
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <aside class="ai-invite">
+      <span class="eyebrow">AI 找位</span>
+      <h2>不想翻列表？<br>把需求说给我听。</h2>
+      <p>“周三晚上，六个人，要有白板”——我会按空档、容量和设备帮你排好。</p>
+      <a class="btn" href="s02-booking.html?room=lib-a&amp;start=14:00&amp;end=15:30">试一句
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
+      </a>
+    </aside>
+  </main>
+
+  <nav class="mp-tabbar" aria-label="主导航">
+    <a class="on" href="s01-availability.html" aria-current="page">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5 5-2Z"/></svg>
+      <span>找空档</span>
+    </a>
+    <a href="s04-bookings.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17M8 14h3"/></svg>
+      <span>我的预约</span>
+    </a>
+    <a href="s06-credit.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5c0 4.4 3 8.2 7 10 4-1.8 7-5.6 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+      <span>信用分</span>
+    </a>
+  </nav>
+</body>
+</html>

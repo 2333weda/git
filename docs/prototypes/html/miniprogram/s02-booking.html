@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="dsh-design" content="miniprogram">
+  <title>预约下单 · 智约</title>
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header class="mp-top">
+    <div class="mp-status">
+      <span>13:22</span>
+      <span class="mp-status-icons" aria-hidden="true">
+        <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg>
+        <svg width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M1.5 4.5a9.5 9.5 0 0 1 13 0"/><path d="M4 7.2a6 6 0 0 1 8 0"/><path d="M6.6 9.8a2.4 2.4 0 0 1 2.8 0"/><circle cx="8" cy="11" r=".8" fill="currentColor" stroke="none"/></svg>
+        <span class="battery"></span>
+      </span>
+    </div>
+    <div class="mp-nav">
+      <a class="mp-back" href="s01-availability.html" aria-label="返回空档查询">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 5-7 7 7 7"/></svg>
+      </a>
+      <h1>预约下单</h1>
+    </div>
+  </header>
+
+  <main class="mp-page detail">
+    <div class="step-flow" aria-label="预约进度">
+      <span class="step-item done"><span class="step-dot">✓</span>选时段</span>
+      <span class="step-line"></span>
+      <span class="step-item now"><span class="step-dot">2</span>填信息</span>
+      <span class="step-line"></span>
+      <span class="step-item"><span class="step-dot">3</span>完成</span>
+    </div>
+
+    <section class="ticket" aria-labelledby="booking-title">
+      <div class="ticket-top">
+        <span class="ticket-label">YOUR SPACE · 预约时段</span>
+        <span class="badge" style="background: var(--yellow)">待签到</span>
+      </div>
+      <h2 id="booking-title">静思研讨室 A</h2>
+      <p class="ticket-meta" id="summaryMeta">图书馆 3F · 6 人 · 白板 / 投影</p>
+      <div class="ticket-times">
+        <div class="ticket-time">
+          <small>开始</small>
+          <strong id="summaryStart">14:00</strong>
+        </div>
+        <svg class="ticket-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M14 6l6 6-6 6"/></svg>
+        <div class="ticket-time">
+          <small>结束</small>
+          <strong id="summaryEnd">15:30</strong>
+        </div>
+      </div>
+      <div class="ticket-foot">
+        <span id="summaryDuration">11 月 22 日 · 周六 · 1.5 小时</span>
+        <span class="badge" style="background: var(--accent)">免费开放</span>
+      </div>
+    </section>
+
+    <div class="note-row" style="margin-top: 14px">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 1px"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+      <span>相邻预约之间需间隔 20 分钟。开始后 15 分钟内未签到，系统会自动释放并记一次爽约。</span>
+    </div>
+
+    <section class="form-group" aria-labelledby="people-label">
+      <div class="form-row">
+        <div>
+          <div class="form-label" id="people-label">同行人数</div>
+          <p class="inline-hint" style="margin-top: 2px">含本人，最多 6 人</p>
+        </div>
+        <div class="stepper" role="group" aria-label="同行人数">
+          <button type="button" id="minusPeople" aria-label="减少人数">−</button>
+          <output id="peopleCount" aria-live="polite">2</output>
+          <button type="button" id="plusPeople" aria-label="增加人数">+</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="form-group" aria-labelledby="use-label">
+      <div class="form-label" id="use-label">使用用途 <span class="hint">选填，方便管理员了解</span></div>
+      <div class="chip-scroll" aria-label="使用用途">
+        <button class="chip coral" type="button">小组讨论</button>
+        <button class="chip" type="button">自习</button>
+        <button class="chip" type="button">社团活动</button>
+        <button class="chip" type="button">其他</button>
+      </div>
+    </section>
+
+    <section class="form-group" aria-labelledby="note-label">
+      <div class="form-label" id="note-label">备注 <span class="hint">0 / 100</span></div>
+      <textarea class="field" maxlength="100" placeholder="需要白板笔、提前开空调，或留给同行人的话……" aria-labelledby="note-label"></textarea>
+    </section>
+
+    <section class="form-group" aria-labelledby="phone-label">
+      <div class="form-label" id="phone-label">联系手机号 <span class="hint">仅用于超时提醒</span></div>
+      <div class="phone-field">
+        <span class="prefix">+86</span>
+        <strong>138 0000 0000</strong>
+        <span class="locked">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+        </span>
+      </div>
+      <p class="inline-hint">已绑定学号 2023120418，手机号由学院统一维护。</p>
+    </section>
+
+    <div class="callout warm" style="margin-top: 20px">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.4 3.4 8.2 8 9 4.6-.8 8-4.6 8-9V6l-8-3Z"/><path d="m8.5 12 2.2 2.2 4.8-4.8"/></svg>
+      <span><strong>提交前请确认时段。</strong>预约成功后可在“我的预约”里签到或取消；开始前取消不扣信用分。</span>
+    </div>
+  </main>
+
+  <div class="mp-actionbar">
+    <div class="action-meta"><strong>免费</strong>无需支付</div>
+    <a class="btn btn-primary" href="s04-bookings.html?submitted=1">
+      确认预约
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg>
+    </a>
+  </div>
+
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var rooms = {
+        "lib-a": { name: "静思研讨室 A", meta: "图书馆 3F · 6 人 · 白板 / 投影", cap: 6 },
+        "md-204": { name: "204 小组研讨室", meta: "明德楼 2F · 8 人 · 电视屏", cap: 8 },
+        "gym-2": { name: "风雨球场 2 号", meta: "体育馆 1F · 4 人 · 木地板", cap: 4 }
+      };
+      var room = rooms[params.get("room")] || rooms["lib-a"];
+      var start = params.get("start") || "14:00";
+      var end = params.get("end") || "15:30";
+
+      function minutes(value) {
+        var parts = value.split(":");
+        return parseInt(parts[0], 10) * 60 + parseInt(parts[1], 10);
+      }
+
+      function durationLabel() {
+        var mins = minutes(end) - minutes(start);
+        if (mins <= 0) return "11 月 22 日 · 周六";
+        var hours = Math.floor(mins / 60);
+        var rest = mins % 60;
+        var label = "";
+        if (hours) label += hours + " 小时";
+        if (rest) label += (hours ? " " : "") + rest + " 分钟";
+        return "11 月 22 日 · 周六 · " + label;
+      }
+
+      document.getElementById("booking-title").textContent = room.name;
+      document.getElementById("summaryMeta").textContent = room.meta;
+      document.getElementById("summaryStart").textContent = start;
+      document.getElementById("summaryEnd").textContent = end;
+      document.getElementById("summaryDuration").textContent = durationLabel();
+      document.querySelector("#people-label + .inline-hint").textContent = "含本人，最多 " + room.cap + " 人";
+
+      var count = 2;
+      var output = document.getElementById("peopleCount");
+      var max = Math.min(room.cap, 20);
+      document.getElementById("plusPeople").addEventListener("click", function () {
+        if (count < max) { count += 1; output.textContent = count; }
+      });
+      document.getElementById("minusPeople").addEventListener("click", function () {
+        if (count > 1) { count -= 1; output.textContent = count; }
+      });
+
+      document.querySelectorAll(".chip-scroll .chip").forEach(function (chip) {
+        chip.addEventListener("click", function () {
+          document.querySelectorAll(".chip-scroll .chip").forEach(function (item) {
+            item.classList.remove("coral");
+          });
+          chip.classList.add("coral");
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+/* 智约 · 微信小程序原型
+   风格：活泼年轻（贴纸感 / 粗描边 / 硬阴影） */
+:root {
+  --bg: #fff7e8;
+  --surface: #ffffff;
+  --surface-soft: #fff1d9;
+  --surface-warm: #ffe3cb;
+  --ink: #1d1b3a;
+  --muted: #5d5a82;
+  --line: #1d1b3a;
+  --line-soft: #d9cbb8;
+  --primary: #ff6a3d;
+  --primary-deep: #e8542a;
+  --accent: #1f9e92;
+  --accent-deep: #137167;
+  --accent-soft: #dff2ee;
+  --yellow: #ffd166;
+  --danger: #b53c2e;
+  --danger-soft: #ffe3dc;
+  --white: #ffffff;
+
+  --font-display: "SF Pro Rounded", "PingFang SC", "HarmonyOS Sans SC", "MiSans", "Microsoft YaHei", system-ui, sans-serif;
+  --font-body: "PingFang SC", "HarmonyOS Sans SC", "MiSans", "Microsoft YaHei", system-ui, sans-serif;
+  --font-mono: "SF Mono", "Cascadia Mono", "Roboto Mono", ui-monospace, monospace;
+
+  --text-xs: 11px;
+  --text-sm: 13px;
+  --text-base: 15px;
+  --text-md: 17px;
+  --text-lg: 21px;
+  --text-xl: 28px;
+  --text-2xl: 34px;
+
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-xl: 26px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 2px 2px 0 var(--ink);
+  --shadow-md: 3px 3px 0 var(--ink);
+  --shadow-lg: 4px 4px 0 var(--ink);
+  --shadow-coral: 4px 4px 0 var(--primary);
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  --tabbar-h: 84px;
+  --actionbar-pad: 44px;
+}

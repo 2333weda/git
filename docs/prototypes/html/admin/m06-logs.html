@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="dsh-design" content="web">
+  <title>操作日志 · 智约管理后台</title>
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="m01-venues.html" aria-label="智约管理后台首页">
+      <span class="brand-mark">约</span>
+      <span class="brand-copy"><strong>智约</strong><span>共享空间管理后台</span></span>
+    </a>
+    <div class="scope-box"><span>数据范围</span><strong>全院 · 学院管理员</strong></div>
+    <div class="nav-label">管理模块</div>
+    <nav class="nav" aria-label="管理模块">
+        <a href="m01-venues.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V6.5A2.5 2.5 0 0 1 6.5 4H20v15H6.5A2.5 2.5 0 0 1 4 16.5Z"/><path d="M4 16.5A2.5 2.5 0 0 1 6.5 14H20M8 8h8M8 11.5h5"/></svg><span>场地与时段</span><span class="nav-code">M-01</span></a>
+        <a href="m02-approvals.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3.5" width="16" height="17" rx="2.5"/><path d="m8 12 2.5 2.5L16 9M8 17h8"/></svg><span>预约审批</span><span class="nav-code">M-02</span></a>
+        <a href="m03-users.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0M16 5.4a3 3 0 0 1 0 5.2M18.2 14.2A5 5 0 0 1 21 19"/></svg><span>用户与角色</span><span class="nav-code">M-03</span></a>
+        <a href="m04-failures.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0M17 13v6M17 22h.01M20.5 16.5l-7 7"/></svg><span>爽约名单</span><span class="nav-code">M-04</span></a>
+        <a href="m05-utilization.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V4M4 20h16"/><path d="m7 15 3.5-4 3 2.5L19 7"/></svg><span>利用率统计</span><span class="nav-code">M-05</span></a>
+        <a href="m06-logs.html" class="active" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4.5V3h6v1.5M8.5 9h7M8.5 13h7M8.5 17h4"/></svg><span>操作日志</span><span class="nav-code">M-06</span></a>
+    </nav>
+    <div class="sidebar-foot">
+      <button class="side-help" type="button" data-toast="字段口径、状态机与权限说明见需求说明书第 3～6 章。"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.6 2.6 0 1 1 4 2.2c-.9.5-1.5 1-1.5 2M12 17h.01"/></svg><span>口径与帮助</span></button>
+      <div class="side-version">演示原型 · V0.8</div>
+    </div>
+  </aside>
+
+  <div class="app-main">
+    <header class="topbar">
+      <div class="crumb"><span>管理后台</span><span>/</span><strong>操作日志</strong></div>
+      <div class="topbar-tools">
+        <label class="global-search">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
+          <input type="search" placeholder="搜索场地、预约号、学号…" aria-label="全局搜索">
+          <kbd>⌘K</kbd>
+        </label>
+        <button class="icon-btn" type="button" aria-label="通知" data-toast="暂无新的系统通知。">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg>
+          <span class="dot"></span>
+        </button>
+        <div class="user-chip">
+          <span class="avatar">陈</span>
+          <span class="user-copy"><strong>陈老师</strong><span>学院管理员</span></span>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+      <div class="page-head">
+        <div>
+          <div class="page-kicker"><span class="id">M-06</span> 管理后台</div>
+          <h1>操作日志</h1>
+          <p class="page-desc">只读查询管理端操作记录，支持按时间、操作人、动作类型与对象编号定位；不可修改或删除。</p>
+        </div>
+        <div class="page-actions">
+          <span class="updated">数据更新于 13:22</span>
+          <button class="btn btn-primary" type="button" data-toast="导出需学院管理员权限，已写入二次审计。"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>导出日志</button>
+        </div>
+      </div>
+<section class="stat-grid" aria-label="关键数据">
+          <div class="stat">
+            <div class="stat-label"><span>今日操作</span><span class="muted">全院</span></div>
+            <strong>128</strong>
+            <span class="sub">较昨日 +12</span>
+          </div>
+          <div class="stat">
+            <div class="stat-label"><span>高风险动作</span><span class="muted">需关注</span></div>
+            <strong>3</strong>
+            <span class="sub">角色变更 · 导出</span>
+          </div>
+          <div class="stat">
+            <div class="stat-label"><span>角色变更</span><span class="muted">今日</span></div>
+            <strong>2</strong>
+            <span class="sub">均在授权范围内</span>
+          </div>
+          <div class="stat">
+            <div class="stat-label"><span>日志留存</span><span class="muted">审计</span></div>
+            <strong>180 天</strong>
+            <span class="sub">不可修改、不可删除</span>
+          </div>
+      </section>
+      <section class="filter-card" aria-label="查询条件">
+        <div class="filter-head">
+          <div class="filter-title">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+            查询条件
+          </div>
+          <span class="filter-hint">日志只读；先选时间范围，再按操作人、动作类型或对象编号精确定位。</span>
+        </div>
+        <div class="filter-grid">
+          <div class="field field-wide"><label for="logRange">时间范围</label><div class="range"><input id="logRange" type="date" value="2026-11-22"><span>—</span><input type="date" value="2026-11-22"></div></div>
+          <div class="field"><label for="logUser">操作人</label><select id="logUser"><option>全部操作人</option><option>陈老师</option><option>赵岚</option><option>周沐</option><option>系统</option></select></div>
+          <div class="field"><label for="logAction">动作类型</label><select id="logAction"><option>全部动作</option><option>场地与时段</option><option>预约审批</option><option>用户与角色</option><option>导出</option><option>系统任务</option></select></div>
+          <div class="field"><label for="logObject">对象编号</label><input id="logObject" type="search" placeholder="如：RES-003"></div>
+          <div class="filter-actions"><button class="btn btn-primary" type="button" data-toast="已按当前条件查询，共 128 条日志。">查询</button>
+          <button class="btn" type="button">重置</button></div>
+        </div>
+      </section>
+      <div class="notice readonly" style="margin-bottom: 16px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><span><strong>只读日志：</strong>表不提供修改与删除接口，按本场地或全院范围注入；导出需学院管理员权限并写二次审计。</span></div>
+
+      <div class="split">
+        <section class="panel" aria-label="操作日志列表">
+          <div class="table-toolbar"><div class="result-count">操作日志　<strong>共 128 条</strong>　按时间倒序</div><div class="table-toolbar-actions"><span class="tag">仅本院范围</span></div></div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>时间</th><th>操作人</th><th>动作</th><th>对象</th><th>操作</th></tr></thead>
+              <tbody>
+                <tr class="selected"><td class="mono">11-22 12:42:18</td><td><span class="cell-main">周沐</span><span class="cell-sub">场地管理员</span></td><td><span class="cell-main">更新维护窗口</span><span class="cell-sub">静思研讨室 A</span></td><td class="mono">RES-003</td><td><button class="row-action" type="button" data-toast="右侧展示该条日志的改前 / 改后详情。">查看详情</button></td></tr>
+                <tr><td class="mono">11-22 12:31:05</td><td><span class="cell-main">陈老师</span><span class="cell-sub">学院管理员</span></td><td><span class="cell-main">导出爽约名单</span><span class="cell-sub">全院 · CSV</span></td><td class="mono">EXP-20261122-006</td><td><button class="row-action" type="button" data-toast="右侧展示该条日志的改前 / 改后详情。">查看详情</button></td></tr>
+                <tr><td class="mono">11-22 11:58:40</td><td><span class="cell-main">系统</span><span class="cell-sub">定时任务</span></td><td><span class="cell-main">自动释放未签到</span><span class="cell-sub">204 小组研讨室</span></td><td class="mono">BK-20261122-0174</td><td><button class="row-action" type="button" data-toast="右侧展示该条日志的改前 / 改后详情。">查看详情</button></td></tr>
+                <tr><td class="mono">11-22 11:42:11</td><td><span class="cell-main">赵岚</span><span class="cell-sub">学院管理员</span></td><td><span class="cell-main">修改用户角色</span><span class="cell-sub">周沐 · 学生 → 场地管理员</span></td><td class="mono">U-2022110832</td><td><button class="row-action" type="button" data-toast="右侧展示该条日志的改前 / 改后详情。">查看详情</button></td></tr>
+                <tr><td class="mono">11-22 11:15:33</td><td><span class="cell-main">周沐</span><span class="cell-sub">场地管理员</span></td><td><span class="cell-main">审批通过</span><span class="cell-sub">超时长 · 林一然</span></td><td class="mono">BK-20261123-0187</td><td><button class="row-action" type="button" data-toast="右侧展示该条日志的改前 / 改后详情。">查看详情</button></td></tr>
+                <tr><td class="mono">11-22 10:52:07</td><td><span class="cell-main">陈老师</span><span class="cell-sub">学院管理员</span></td><td><span class="cell-main">查看手机号全号</span><span class="cell-sub">林一然 · 审计记录</span></td><td class="mono">U-2023120418</td><td><button class="row-action" type="button" data-toast="右侧展示该条日志的改前 / 改后详情。">查看详情</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-foot"><span>显示第 1–6 条，共 128 条</span><div class="pagination"><button type="button" aria-label="上一页">‹</button><span class="current">1</span><button type="button">2</button><button type="button">3</button><button type="button">4</button><button type="button" aria-label="下一页">›</button></div></div>
+        </section>
+
+        <aside class="panel" aria-label="日志详情">
+          <div class="panel-head"><div class="panel-title">日志详情</div><span class="pill pill-muted">只读</span></div>
+          <div class="panel-body">
+            <div class="log-head"><div class="log-id">LOG-20261122-0142</div><span class="tag">成功</span></div>
+            <div class="log-action">更新维护窗口</div>
+            <div class="log-meta">2026-11-22 12:42:18 · 周沐（场地管理员）</div>
+            <div class="detail-list mt-12">
+              <div class="detail-row"><span>对象</span><span><strong>静思研讨室 A</strong><br><span class="faint">RES-003 · 图书馆 3F</span></span></div>
+              <div class="detail-row"><span>来源 IP</span><span class="mono">10.24.11.38</span></div>
+              <div class="detail-row"><span>请求 ID</span><span class="mono">req_9f3a21c8</span></div>
+              <div class="detail-row"><span>结果</span><span style="color: var(--primary)">成功</span></div>
+            </div>
+            <div class="diff-block"><div class="diff-head"><span>改前</span><span>2026-11-22 12:42:18</span></div><div class="diff-body">11-23 12:00–13:00 无维护安排</div></div>
+            <div class="diff-block"><div class="diff-head"><span>改后</span><span>2026-11-22 12:42:18</span></div><div class="diff-body">11-23 12:00–13:00 · 设备检修<br>受影响预约：2 条</div></div>
+            <div class="notice readonly mt-14"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><span>日志只读，任何角色均不可修改或删除。关联对象可按权限继续查看。</span></div>
+            <a class="btn btn-sm mt-12" href="m01-venues.html" style="width: 100%">查看关联场地</a>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

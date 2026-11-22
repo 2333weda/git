@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="dsh-design" content="miniprogram">
+  <title>扫码签到 · 智约</title>
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header class="mp-top">
+    <div class="mp-status">
+      <span>13:22</span>
+      <span class="mp-status-icons" aria-hidden="true">
+        <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg>
+        <svg width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M1.5 4.5a9.5 9.5 0 0 1 13 0"/><path d="M4 7.2a6 6 0 0 1 8 0"/><path d="M6.6 9.8a2.4 2.4 0 0 1 2.8 0"/><circle cx="8" cy="11" r=".8" fill="currentColor" stroke="none"/></svg>
+        <span class="battery"></span>
+      </span>
+    </div>
+    <div class="mp-nav">
+      <a class="mp-back" href="s04-bookings.html" aria-label="返回我的预约">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 5-7 7 7 7"/></svg>
+      </a>
+      <h1>扫码签到</h1>
+    </div>
+  </header>
+
+  <main class="mp-page plain">
+    <section class="scan-wrap" aria-labelledby="scan-title">
+      <div class="appointment-strip">
+        <span class="venue-thumb" aria-hidden="true" style="width: 38px; height: 38px; flex-basis: 38px; border-radius: 10px">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 1 4 16.5Z"/><path d="M4 16.5A2.5 2.5 0 0 1 6.5 14H20M8 7h8M8 10.5h5"/></svg>
+        </span>
+        <span class="when">
+          <strong>今天 14:00 — 15:30</strong>
+          <span>图书馆 3F · 静思研讨室 A</span>
+        </span>
+        <span class="countdown">
+          <small>距开始</small>
+          <strong>38 分</strong>
+        </span>
+      </div>
+
+      <div class="scan-card">
+        <div class="scan-head">
+          <div>
+            <h2 id="scan-title">扫场馆码，签到入座</h2>
+            <p>签到窗口 13:45—14:15 · 过期将自动释放</p>
+          </div>
+          <span class="badge" style="background: var(--yellow)">待签到</span>
+        </div>
+
+        <div class="scan-frame" aria-label="扫描框">
+          <i class="scan-corner tl"></i>
+          <i class="scan-corner tr"></i>
+          <i class="scan-corner bl"></i>
+          <i class="scan-corner br"></i>
+          <i class="scan-line"></i>
+          <span class="scan-center">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16"/><path d="M8 9h3v3H8zM13.5 9H16v2h-2.5zM8 14h2v2H8zM13 14h3v3h-3z"/></svg>
+            <strong>对准场地二维码</strong>
+            <span>签到码仅限本人使用，截图转借无效</span>
+          </span>
+        </div>
+
+        <button class="btn btn-primary btn-block scan-cta" type="button" id="scanBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16"/><path d="M12 8v5M9.5 10.5h5"/></svg>
+          模拟扫码签到
+        </button>
+        <a class="scan-help" href="#help">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.6 2.6 0 1 1 4 2.2c-.9.5-1.5 1-1.5 2M12 17h.01"/></svg>
+          扫不出来？让管理员口令补录
+        </a>
+      </div>
+
+      <div class="scan-rules" id="help">
+        <div class="rule-line">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 1px"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <span><strong>签到时间：</strong>开始前 15 分钟至开始后 15 分钟，超时未签到将记一次爽约。</span>
+        </div>
+        <div class="rule-line">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 1px"><path d="M12 3 4 6v6c0 4.4 3.4 8.2 8 9 4.6-.8 8-4.6 8-9V6l-8-3Z"/><path d="m8.5 12 2.2 2.2 4.8-4.8"/></svg>
+          <span><strong>签到成功：</strong>场地会自动保留到结束时间，提前用完可以手动释放。</span>
+        </div>
+        <div class="rule-line">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 1px"><rect x="6" y="3" width="12" height="18" rx="3"/><path d="M10 7h4M11 18h2"/></svg>
+          <span><strong>没有带手机？</strong>请场地管理员在后台核对身份后补录，补录原因会写进操作日志。</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="sheet-backdrop" id="scanResult" role="dialog" aria-modal="true" aria-labelledby="scanResultTitle" hidden>
+    <section class="sheet">
+      <div class="sheet-success-icon" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg>
+      </div>
+      <h2 id="scanResultTitle">签到成功</h2>
+      <p class="sheet-sub">座位已经为你留住，结束前 5 分钟会提醒。</p>
+      <div class="sheet-info">
+        <div class="sheet-info-row"><span>场地</span><strong>静思研讨室 A</strong></div>
+        <div class="sheet-info-row"><span>使用时段</span><strong>14:00 — 15:30</strong></div>
+        <div class="sheet-info-row"><span>签到时间</span><strong>13:55 · 扫码</strong></div>
+        <div class="sheet-info-row"><span>当前状态</span><strong style="color: var(--accent-deep)">已签到</strong></div>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-ghost" type="button" id="closeScan">留在这里</button>
+        <a class="btn btn-primary" href="s04-bookings.html">查看预约</a>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    (function () {
+      var result = document.getElementById("scanResult");
+      var scanBtn = document.getElementById("scanBtn");
+      var closeBtn = document.getElementById("closeScan");
+
+      function openResult() {
+        result.hidden = false;
+        closeBtn.focus();
+      }
+
+      function closeResult() {
+        result.hidden = true;
+        scanBtn.focus();
+      }
+
+      scanBtn.addEventListener("click", openResult);
+      closeBtn.addEventListener("click", closeResult);
+      result.addEventListener("click", function (event) {
+        if (event.target === result) closeResult();
+      });
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && !result.hidden) closeResult();
+      });
+    })();
+  </script>
+</body>
+</html>

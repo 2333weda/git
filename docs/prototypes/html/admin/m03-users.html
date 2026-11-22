@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="dsh-design" content="web">
+  <title>用户与角色 · 智约管理后台</title>
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="m01-venues.html" aria-label="智约管理后台首页">
+      <span class="brand-mark">约</span>
+      <span class="brand-copy"><strong>智约</strong><span>共享空间管理后台</span></span>
+    </a>
+    <div class="scope-box"><span>数据范围</span><strong>全院 · 学院管理员</strong></div>
+    <div class="nav-label">管理模块</div>
+    <nav class="nav" aria-label="管理模块">
+        <a href="m01-venues.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V6.5A2.5 2.5 0 0 1 6.5 4H20v15H6.5A2.5 2.5 0 0 1 4 16.5Z"/><path d="M4 16.5A2.5 2.5 0 0 1 6.5 14H20M8 8h8M8 11.5h5"/></svg><span>场地与时段</span><span class="nav-code">M-01</span></a>
+        <a href="m02-approvals.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3.5" width="16" height="17" rx="2.5"/><path d="m8 12 2.5 2.5L16 9M8 17h8"/></svg><span>预约审批</span><span class="nav-code">M-02</span></a>
+        <a href="m03-users.html" class="active" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0M16 5.4a3 3 0 0 1 0 5.2M18.2 14.2A5 5 0 0 1 21 19"/></svg><span>用户与角色</span><span class="nav-code">M-03</span></a>
+        <a href="m04-failures.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0M17 13v6M17 22h.01M20.5 16.5l-7 7"/></svg><span>爽约名单</span><span class="nav-code">M-04</span></a>
+        <a href="m05-utilization.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V4M4 20h16"/><path d="m7 15 3.5-4 3 2.5L19 7"/></svg><span>利用率统计</span><span class="nav-code">M-05</span></a>
+        <a href="m06-logs.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4.5V3h6v1.5M8.5 9h7M8.5 13h7M8.5 17h4"/></svg><span>操作日志</span><span class="nav-code">M-06</span></a>
+    </nav>
+    <div class="sidebar-foot">
+      <button class="side-help" type="button" data-toast="字段口径、状态机与权限说明见需求说明书第 3～6 章。"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.6 2.6 0 1 1 4 2.2c-.9.5-1.5 1-1.5 2M12 17h.01"/></svg><span>口径与帮助</span></button>
+      <div class="side-version">演示原型 · V0.8</div>
+    </div>
+  </aside>
+
+  <div class="app-main">
+    <header class="topbar">
+      <div class="crumb"><span>管理后台</span><span>/</span><strong>用户与角色</strong></div>
+      <div class="topbar-tools">
+        <label class="global-search">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
+          <input type="search" placeholder="搜索场地、预约号、学号…" aria-label="全局搜索">
+          <kbd>⌘K</kbd>
+        </label>
+        <button class="icon-btn" type="button" aria-label="通知" data-toast="暂无新的系统通知。">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg>
+          <span class="dot"></span>
+        </button>
+        <div class="user-chip">
+          <span class="avatar">陈</span>
+          <span class="user-copy"><strong>陈老师</strong><span>学院管理员</span></span>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+      <div class="page-head">
+        <div>
+          <div class="page-kicker"><span class="id">M-03</span> 管理后台</div>
+          <h1>用户与角色</h1>
+          <p class="page-desc">维护账号、角色与场地绑定；学生账号默认脱敏，手机号全号查看会写入审计。</p>
+        </div>
+        <div class="page-actions">
+          <span class="updated">数据更新于 13:22</span>
+          <button class="btn" type="button" data-toast="用户清单导出已创建，文件 24 小时内有效。">导出用户</button>
+          <button class="btn btn-primary" type="button" data-toast="新增账号：仅学院管理员可创建场地管理员与学院管理员。">新增账号</button>
+        </div>
+      </div>
+<section class="stat-grid" aria-label="关键数据">
+          <div class="stat">
+            <div class="stat-label"><span>学生账号</span><span class="muted">全院</span></div>
+            <strong>1,284</strong>
+            <span class="sub">本学期活跃 1,097</span>
+          </div>
+          <div class="stat">
+            <div class="stat-label"><span>场地管理员</span><span class="muted">全院</span></div>
+            <strong>8</strong>
+            <span class="sub">绑定 25 个场地</span>
+          </div>
+          <div class="stat">
+            <div class="stat-label"><span>学院管理员</span><span class="muted">全院</span></div>
+            <strong>3</strong>
+            <span class="sub">含本人 · 可写</span>
+          </div>
+          <div class="stat">
+            <div class="stat-label"><span>已停用</span><span class="muted">全部</span></div>
+            <strong>6</strong>
+            <span class="sub">token 已失效</span>
+          </div>
+      </section>
+      <section class="filter-card" aria-label="查询条件">
+        <div class="filter-head">
+          <div class="filter-title">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+            查询条件
+          </div>
+          <span class="filter-hint">支持按学号、姓名、角色、绑定场地与启用状态查询。</span>
+        </div>
+        <div class="filter-grid">
+          <div class="field">
+            <label for="userKeyword">学号 / 姓名</label>
+            <div class="with-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
+              <input id="userKeyword" type="search" placeholder="如：2023120418 / 林一然">
+            </div>
+          </div>
+          <div class="field"><label for="userRole">角色</label><select id="userRole"><option>全部角色</option><option>学生</option><option>场地管理员</option><option>学院管理员</option></select></div>
+          <div class="field"><label for="userScope">绑定场地</label><select id="userScope"><option>全部场地</option><option>图书馆</option><option>明德楼</option><option>体育馆</option><option>艺术楼</option></select></div>
+          <div class="field"><label for="userStatus">状态</label><select id="userStatus"><option>全部状态</option><option>正常</option><option>已停用</option></select></div>
+          <div class="filter-actions"><button class="btn btn-primary" type="button" data-toast="已按当前条件查询，共 5 条用户记录。">查询</button>
+          <button class="btn" type="button">重置</button></div>
+        </div>
+      </section>
+      <div class="split">
+        <section class="panel" aria-label="用户列表">
+          <div class="table-toolbar"><div class="result-count">用户列表　<strong>共 1,284 人</strong>　默认脱敏</div><div class="table-toolbar-actions"><button class="btn btn-sm" type="button" data-toast="手机号全号查看会写入审计日志。">查看全号</button></div></div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>用户</th><th>角色 / 绑定</th><th>手机号</th><th>状态</th><th>最近登录</th><th>操作</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td class="primary-cell"><span class="cell-main">林一然</span><span class="cell-sub">2023120418</span></td>
+                  <td><span class="pill pill-muted">学生</span><span class="cell-sub">本人数据范围</span></td>
+                  <td class="mono">138****0000</td><td><span class="pill pill-green">正常</span></td><td>今天 12:40</td>
+                  <td><button class="row-action" type="button" data-open="userModal">编辑</button></td>
+                </tr>
+                <tr>
+                  <td class="primary-cell"><span class="cell-main">周沐</span><span class="cell-sub">2022110832</span></td>
+                  <td><span class="pill pill-blue">场地管理员</span><span class="cell-sub">图书馆 3F、明德楼 2F</span></td>
+                  <td class="mono">139****2211</td><td><span class="pill pill-green">正常</span></td><td>今天 09:12</td>
+                  <td><button class="row-action" type="button" data-open="userModal">编辑</button></td>
+                </tr>
+                <tr>
+                  <td class="primary-cell"><span class="cell-main">赵岚</span><span class="cell-sub">T2021007</span></td>
+                  <td><span class="pill pill-green">学院管理员</span><span class="cell-sub">全院 · 含本人</span></td>
+                  <td class="mono">136****4002</td><td><span class="pill pill-green">正常</span></td><td>今天 08:30</td>
+                  <td><span class="row-action faint" aria-disabled="true">本人</span></td>
+                </tr>
+                <tr>
+                  <td class="primary-cell"><span class="cell-main">陈星</span><span class="cell-sub">2023110745</span></td>
+                  <td><span class="pill pill-muted">学生</span><span class="cell-sub">本人数据范围</span></td>
+                  <td class="mono">137****8890</td><td><span class="pill pill-muted">已停用</span></td><td>11-18 16:20</td>
+                  <td><button class="row-action" type="button" data-open="userModal">编辑</button></td>
+                </tr>
+                <tr>
+                  <td class="primary-cell"><span class="cell-main">吴桐</span><span class="cell-sub">2022120611</span></td>
+                  <td><span class="pill pill-blue">场地管理员</span><span class="cell-sub">体育馆 1F</span></td>
+                  <td class="mono">135****6678</td><td><span class="pill pill-green">正常</span></td><td>11-21 17:05</td>
+                  <td><button class="row-action" type="button" data-open="userModal">编辑</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-foot"><span>显示第 1–5 条，共 1,284 条</span><div class="pagination"><button type="button" aria-label="上一页">‹</button><span class="current">1</span><button type="button">2</button><button type="button">3</button><button type="button" aria-label="下一页">›</button></div></div>
+        </section>
+
+        <aside>
+          <section class="panel" aria-label="角色变更记录">
+            <div class="panel-head"><div class="panel-title">角色变更记录　<span class="count">最近 3 条</span></div><button class="panel-link" type="button" data-toast="已打开完整变更记录（演示）。">查看全部 <span aria-hidden="true">›</span></button></div>
+            <div class="panel-body">
+              <div class="timeline">
+                <div class="timeline-item"><div class="timeline-time">11-21 16:40 · 陈老师</div><div class="timeline-copy"><strong>周沐</strong> 学生 → 场地管理员<br><span>绑定：图书馆 3F、明德楼 2F</span></div></div>
+                <div class="timeline-item"><div class="timeline-time">11-18 10:12 · 赵岚</div><div class="timeline-copy"><strong>陈星</strong> 正常 → 已停用<br><span>原因：本人申请暂停账号</span></div></div>
+                <div class="timeline-item"><div class="timeline-time">11-15 09:20 · 赵岚</div><div class="timeline-copy"><strong>吴桐</strong> 场地管理员 → 学生<br><span>解除体育馆 1F 绑定</span></div></div>
+              </div>
+            </div>
+          </section>
+          <section class="panel" aria-label="权限提醒">
+            <div class="panel-head"><div class="panel-title">权限提醒</div></div>
+            <div class="panel-body">
+              <div class="rule-inline" style="margin-top: 0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg><span>仅学院管理员可写；停用与换绑需二次确认。</span></div>
+              <div class="rule-inline"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg><span>已产生预约的账号只能停用，不能删除。</span></div>
+              <div class="rule-inline"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg><span>停用后该账号 token 立即失效。</span></div>
+            </div>
+          </section>
+        </aside>
+      </div>
+
+      <div class="modal-backdrop" id="userModal" hidden>
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="userTitle">
+          <div class="modal-head"><div><h2 id="userTitle">编辑账号</h2><p>角色与绑定场地变更会立即生效，并写入操作日志。</p></div><button class="modal-close" type="button" data-close aria-label="关闭">×</button></div>
+          <div class="modal-body">
+            <div class="form-grid">
+              <div class="field"><label for="uName">姓名</label><input id="uName" type="text" value="周沐"></div>
+              <div class="field"><label for="uNo">学号 / 工号</label><input id="uNo" type="text" value="2022110832"></div>
+              <div class="field"><label for="uRole">角色</label><select id="uRole"><option>学生</option><option selected>场地管理员</option><option>学院管理员</option></select></div>
+              <div class="field"><label for="uStatus">状态</label><select id="uStatus"><option selected>正常</option><option>已停用</option></select></div>
+              <div class="field span-2"><label for="uScope">绑定场地</label><input id="uScope" type="text" value="图书馆 3F、明德楼 2F"></div>
+            </div>
+            <div class="notice mt-14"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg><span>已产生预约的账号只能停用，不能删除；停用后该账号 token 立即失效。</span></div>
+          </div>
+          <div class="modal-foot"><button class="btn" type="button" data-close>取消</button><button class="btn btn-primary" type="button" data-close data-toast="账号已更新，角色变更已写入操作日志。">保存变更</button></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

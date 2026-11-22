@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="dsh-design" content="miniprogram">
+  <title>我的预约 · 智约</title>
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header class="mp-top">
+    <div class="mp-status">
+      <span>13:22</span>
+      <span class="mp-status-icons" aria-hidden="true">
+        <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg>
+        <svg width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M1.5 4.5a9.5 9.5 0 0 1 13 0"/><path d="M4 7.2a6 6 0 0 1 8 0"/><path d="M6.6 9.8a2.4 2.4 0 0 1 2.8 0"/><circle cx="8" cy="11" r=".8" fill="currentColor" stroke="none"/></svg>
+        <span class="battery"></span>
+      </span>
+    </div>
+    <div class="mp-nav custom">
+      <a class="brand" href="s01-availability.html" aria-label="智约首页">
+        <span class="brand-mark">约</span>
+        <span class="brand-name">智约</span>
+      </a>
+      <span class="nav-spacer"></span>
+    </div>
+  </header>
+
+  <main class="mp-page">
+    <div class="page-intro">
+      <div>
+        <h1>我的预约</h1>
+        <p>本周 2 场 · 累计使用 3.5 小时</p>
+      </div>
+      <div class="credit-mini" aria-label="当前信用分 90">
+        <strong>90</strong>
+        <span>信用分</span>
+      </div>
+    </div>
+
+    <div class="success-banner" id="successBanner" hidden>
+      <span class="success-icon" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg>
+      </span>
+      <span><strong>预约成功，时段已占住</strong>预约号 BK-20261122-0186 · 记得 13:45 后扫码签到。</span>
+    </div>
+
+    <div class="status-tabs" role="tablist" aria-label="预约状态">
+      <button class="status-tab on" type="button" role="tab" aria-selected="true" data-filter="ongoing">进行中 <small>1</small></button>
+      <button class="status-tab" type="button" role="tab" aria-selected="false" data-filter="completed">已完成 <small>2</small></button>
+      <button class="status-tab" type="button" role="tab" aria-selected="false" data-filter="cancelled">已取消 <small>1</small></button>
+      <button class="status-tab" type="button" role="tab" aria-selected="false" data-filter="noshow">爽约 <small>1</small></button>
+    </div>
+
+    <section aria-live="polite">
+      <article class="booking-card attention" data-status="ongoing">
+        <div class="booking-top">
+          <span class="booking-date">今天 · 11 月 22 日 周六</span>
+          <span class="badge badge-live">待签到</span>
+        </div>
+        <h2 class="booking-time">14:00 — 15:30</h2>
+        <div class="booking-venue">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span>图书馆 3F · 静思研讨室 A</span>
+        </div>
+        <div class="booking-note live">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          13:45 开放签到 · 距开始 38 分钟
+        </div>
+        <div class="booking-actions">
+          <a class="btn btn-ghost btn-sm" href="s05-cancel-appeal.html?mode=cancel">取消预约</a>
+          <a class="btn btn-primary btn-sm" href="s03-checkin.html">
+            去签到
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="booking-card" data-status="completed" hidden>
+        <div class="booking-top">
+          <span class="booking-date">11 月 20 日 周四</span>
+          <span class="badge badge-muted">已完成</span>
+        </div>
+        <h2 class="booking-time">19:00 — 20:30</h2>
+        <div class="booking-venue">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span>体育馆 1F · 风雨球场 2 号</span>
+        </div>
+        <div class="booking-note">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg>
+          已使用 1.5 小时 · 提前 10 分钟结束，时段已释放
+        </div>
+        <div class="booking-actions">
+          <span class="booking-date" style="flex: 1">信用分未变动</span>
+          <a class="link-action" href="s02-booking.html?room=gym-2&amp;start=19:00&amp;end=20:30">再次预约 ›</a>
+        </div>
+      </article>
+
+      <article class="booking-card" data-status="completed" hidden>
+        <div class="booking-top">
+          <span class="booking-date">11 月 18 日 周二</span>
+          <span class="badge badge-muted">已完成</span>
+        </div>
+        <h2 class="booking-time">10:00 — 11:00</h2>
+        <div class="booking-venue">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span>图书馆 3F · 静思研讨室 A</span>
+        </div>
+        <div class="booking-note">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg>
+          已使用 1 小时 · 正常结束
+        </div>
+        <div class="booking-actions">
+          <span class="booking-date" style="flex: 1">信用分未变动</span>
+          <a class="link-action" href="s02-booking.html?room=lib-a&amp;start=10:00&amp;end=11:00">再次预约 ›</a>
+        </div>
+      </article>
+
+      <article class="booking-card muted-card" data-status="cancelled" hidden>
+        <div class="booking-top">
+          <span class="booking-date">11 月 15 日 周六</span>
+          <span class="badge badge-muted">已取消</span>
+        </div>
+        <h2 class="booking-time" style="color: var(--muted)">16:00 — 17:00</h2>
+        <div class="booking-venue">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span>明德楼 2F · 204 小组研讨室</span>
+        </div>
+        <div class="booking-note">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+          取消原因：临时有事 · 时段已释放，未扣信用分
+        </div>
+        <div class="booking-actions">
+          <span class="booking-date" style="flex: 1">取消于 11-14 21:08</span>
+          <a class="link-action" href="s02-booking.html?room=md-204&amp;start=16:00&amp;end=17:00">重新预约 ›</a>
+        </div>
+      </article>
+
+      <article class="booking-card muted-card" data-status="noshow" hidden>
+        <div class="booking-top">
+          <span class="booking-date">10 月 18 日 周日</span>
+          <span class="badge badge-danger">未签到</span>
+        </div>
+        <h2 class="booking-time" style="color: var(--muted)">14:00 — 15:00</h2>
+        <div class="booking-venue">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span>明德楼 2F · 204 小组研讨室</span>
+        </div>
+        <div class="booking-note" style="color: var(--danger)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v5M12 17h.01"/><path d="M10.3 4.5 3.8 16a2 2 0 0 0 1.7 3h13a2 2 0 0 0 1.7-3L13.7 4.5a2 2 0 0 0-3.4 0Z"/></svg>
+          超过 15 分钟未签到 · 信用分 -10
+        </div>
+        <div class="booking-actions">
+          <span class="booking-date" style="flex: 1">已记 1 次爽约</span>
+          <a class="link-action" href="s05-cancel-appeal.html?mode=appeal">我要申诉 ›</a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <nav class="mp-tabbar" aria-label="主导航">
+    <a href="s01-availability.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5 5-2Z"/></svg>
+      <span>找空档</span>
+    </a>
+    <a class="on" href="s04-bookings.html" aria-current="page">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17M8 14h3"/></svg>
+      <span>我的预约</span>
+    </a>
+    <a href="s06-credit.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5c0 4.4 3 8.2 7 10 4-1.8 7-5.6 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+      <span>信用分</span>
+    </a>
+  </nav>
+
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      if (params.get("submitted") === "1") {
+        document.getElementById("successBanner").hidden = false;
+      }
+
+      var tabs = Array.prototype.slice.call(document.querySelectorAll(".status-tab"));
+      var cards = Array.prototype.slice.call(document.querySelectorAll("[data-status]"));
+
+      function activate(tab) {
+        tabs.forEach(function (item) {
+          var on = item === tab;
+          item.classList.toggle("on", on);
+          item.setAttribute("aria-selected", on ? "true" : "false");
+        });
+        cards.forEach(function (card) {
+          card.hidden = card.getAttribute("data-status") !== tab.getAttribute("data-filter");
+        });
+      }
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener("click", function () { activate(tab); });
+      });
+    })();
+  </script>
+</body>
+</html>

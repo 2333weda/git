@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="dsh-design" content="miniprogram">
+  <title>信用分 · 智约</title>
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header class="mp-top">
+    <div class="mp-status">
+      <span>13:22</span>
+      <span class="mp-status-icons" aria-hidden="true">
+        <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg>
+        <svg width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M1.5 4.5a9.5 9.5 0 0 1 13 0"/><path d="M4 7.2a6 6 0 0 1 8 0"/><path d="M6.6 9.8a2.4 2.4 0 0 1 2.8 0"/><circle cx="8" cy="11" r=".8" fill="currentColor" stroke="none"/></svg>
+        <span class="battery"></span>
+      </span>
+    </div>
+    <div class="mp-nav custom">
+      <a class="brand" href="s01-availability.html" aria-label="智约首页">
+        <span class="brand-mark">约</span>
+        <span class="brand-name">智约</span>
+      </a>
+      <span class="nav-spacer"></span>
+    </div>
+  </header>
+
+  <main class="mp-page">
+    <div class="page-intro">
+      <div>
+        <h1>信用分</h1>
+        <p>守约越久，可约的空间越多</p>
+      </div>
+      <span class="badge badge-live" style="margin-bottom: 4px">状态正常</span>
+    </div>
+
+    <section class="score-card" style="--score: 90" aria-labelledby="score-title">
+      <div class="score-head">
+        <div>
+          <span class="eyebrow">CREDIT · 我的信用</span>
+          <h2 id="score-title">每一次到场，都算数</h2>
+        </div>
+        <span class="badge" style="background: var(--yellow)">90 天滚动</span>
+      </div>
+      <div class="score-main">
+        <div class="score-ring" role="img" aria-label="信用分 90 分，满分 100 分">
+          <div class="score-ring-inner">
+            <strong>90</strong>
+            <span>满分 100</span>
+          </div>
+        </div>
+        <div class="score-copy">
+          <span class="badge" style="background: var(--accent)">信用良好</span>
+          <h3>再爽约 2 次，<br>预约会停 7 天。</h3>
+          <p>保持签到，分数会随 90 天窗口自然回升。</p>
+        </div>
+      </div>
+      <div class="score-stats">
+        <div class="score-stat">
+          <span>90 天内爽约</span>
+          <strong>1 / 3 次</strong>
+        </div>
+        <div class="score-stat">
+          <span>距停权</span>
+          <strong>还有 2 次</strong>
+        </div>
+        <div class="score-stat">
+          <span>停权截止</span>
+          <strong>未停权</strong>
+        </div>
+      </div>
+    </section>
+
+    <div class="warning-strip">
+      <span class="strike-dots" aria-hidden="true"><i class="fill"></i><i></i><i></i></span>
+      <span class="warn-copy"><strong>再爽约 2 次</strong>将暂停预约 7 天，已有预约不受影响。</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
+    </div>
+
+    <section class="section" aria-labelledby="rules-title">
+      <div class="sec-head">
+        <h2 id="rules-title">扣分规则</h2>
+        <span class="sec-link">新生初始 100 分</span>
+      </div>
+      <div class="rule-list">
+        <div class="rule-item">
+          <span class="rule-num">01</span>
+          <span class="rule-copy">
+            <strong>按时签到，信用分不变</strong>
+            <p>开始前 15 分钟到开始后 15 分钟内完成扫码签到，正常结束不扣分。</p>
+          </span>
+        </div>
+        <div class="rule-item">
+          <span class="rule-num">02</span>
+          <span class="rule-copy">
+            <strong>每次爽约扣 10 分</strong>
+            <p>超过开始时间 15 分钟仍未签到，系统自动释放时段并记一次爽约。</p>
+          </span>
+        </div>
+        <div class="rule-item">
+          <span class="rule-num">03</span>
+          <span class="rule-copy">
+            <strong>90 天满 3 次停权 7 天</strong>
+            <p>停权期间不能提交新预约；申诉成立可回滚一次扣分与计数。</p>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="records-title">
+      <div class="sec-head">
+        <h2 id="records-title">扣分明细</h2>
+        <span class="sec-link">近 90 天 · 1 条</span>
+      </div>
+      <div class="record-list">
+        <div class="deduction-row">
+          <span class="deduction-date">10-18<br>周日</span>
+          <span class="deduction-copy">
+            <strong>204 小组研讨室</strong>
+            <p>14:00 — 15:00 · 超时 15 分钟未签到</p>
+          </span>
+          <span class="deduction-side">
+            <span class="delta">−10</span>
+            <a href="s05-cancel-appeal.html?mode=appeal">申诉</a>
+          </span>
+        </div>
+      </div>
+      <p class="inline-hint" style="margin-top: 8px">扣分由系统自动记录，管理员和学生均不可手动删除；仅申诉成立后可回滚。</p>
+    </section>
+
+    <section class="section" aria-labelledby="recover-title">
+      <div class="sec-head">
+        <h2 id="recover-title">怎么把分挣回来</h2>
+      </div>
+      <div class="recovery-row">
+        <div class="recovery-card">
+          <span class="mini-icon" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg>
+          </span>
+          <strong>保持履约</strong>
+          <p>按期签到，90 天窗口滚动后旧记录自动移出统计。</p>
+        </div>
+        <div class="recovery-card">
+          <span class="mini-icon" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.3-5.7L4 8.6"/><path d="M4 4v4.6h4.6"/></svg>
+          </span>
+          <strong>申诉成立</strong>
+          <p>对爽约记录有异议，提交说明和截图，审核通过即回滚。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="faq-title">
+      <div class="sec-head">
+        <h2 id="faq-title">你可能想问</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-static">
+          <h3>停权期间还能用已约的场地吗？</h3>
+          <p>可以。停权只限制提交新的预约，已成功预约且未取消的时段仍然有效，请记得按时签到。</p>
+        </div>
+        <div class="faq-static">
+          <h3>爽约次数什么时候清零？</h3>
+          <p>按 90 天滚动窗口计算，不是自然年或学期清零。旧记录超出 90 天后会自动移出统计，分数也随之恢复。</p>
+        </div>
+        <div class="faq-static">
+          <h3>申诉成功后信用分会立即恢复吗？</h3>
+          <p>会。管理员裁定申诉成立后，系统回滚该次扣分和爽约计数；若已进入停权，停权也会一并解除，并留一条操作日志。</p>
+        </div>
+      </div>
+    </section>
+
+    <a class="btn btn-ink btn-block" href="s05-cancel-appeal.html?mode=appeal" style="margin-top: 20px; box-shadow: var(--shadow-md)">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H8l-4 4V5Z"/><path d="M8 9h8M8 12h5"/></svg>
+      对扣分有异议？提交申诉
+    </a>
+  </main>
+
+  <nav class="mp-tabbar" aria-label="主导航">
+    <a href="s01-availability.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5 5-2Z"/></svg>
+      <span>找空档</span>
+    </a>
+    <a href="s04-bookings.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17M8 14h3"/></svg>
+      <span>我的预约</span>
+    </a>
+    <a class="on" href="s06-credit.html" aria-current="page">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5c0 4.4 3 8.2 7 10 4-1.8 7-5.6 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+      <span>信用分</span>
+    </a>
+  </nav>
+</body>
+</html>
